@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <title>JavaScript Lesson</title>
+    </head>
+    <body>
+        <img class="rock" src="rpsLogo/rock.jpg" onclick="
+            playerMove='rock';
+            let computerMove=comMove();
+            let textLine=result(computerMove,playerMove);
+            updateScore(textLine);
+            let newObject=JSON.parse(localStorage.getItem('score'));
+            document.querySelector('.string').innerHTML=`Wins: ${newObject.Wins}, loses: ${newObject.losses}, ties: ${newObject.ties}`;
+            document.querySelector('.string1').innerHTML=textLine;
+            localStorage.setItem('moved','rock');
+            show_move(computerMove,playerMove);
+        ">
+        <img class="paper" src="rpsLogo/paper.jpg" onclick="
+            playerMove='paper';
+            let computerMove=comMove();
+            let textLine=result(computerMove,playerMove);
+            updateScore(textLine);
+            let newObject=JSON.parse(localStorage.getItem('score'));
+            document.querySelector('.string').innerHTML=`Wins: ${newObject.Wins}, loses: ${newObject.losses}, ties: ${newObject.ties}`;
+            document.querySelector('.string1').innerHTML=textLine;
+            localStorage.setItem('moved','paper');
+            show_move(computerMove,playerMove);
+        ">
+        <img class="scissors" src="rpsLogo/scissors.jpg" onclick="
+            playerMove='scissors';
+            let computerMove=comMove();
+            let textLine=result(computerMove,playerMove);
+            updateScore(textLine);
+            let newObject=JSON.parse(localStorage.getItem('score'));
+            document.querySelector('.string').innerHTML=`Wins: ${newObject.Wins}, loses: ${newObject.losses}, ties: ${newObject.ties}`;
+            document.querySelector('.string1').innerHTML=textLine;
+            localStorage.setItem('moved','scissors');
+            show_move(computerMove,playerMove);
+        ">
+        <button class="reset" onclick="
+            score={
+                Wins: 0,
+                losses: 0,
+                ties: 0
+            }
+            localStorage.setItem('score',JSON.stringify(score));
+            document.querySelector('.string').innerHTML=`Wins: ${score.Wins}, loses: ${score.losses}, ties: ${score.ties}`;
+
+        ">Reset</button>
+        <div class="moves"></div>
+        <p class="string1"></p>
+        <p class="string"></p>
+        <script src="index.js"></script>
+    </body>
+</html>
